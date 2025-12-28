@@ -30,7 +30,7 @@ class Hero extends Character {
             this.stance = newStance
             console.log(this.name + " change stance to " + this.stance)
         } 
-        else if(this.changeStance == "defense"){
+        else if(newStance == "defense"){
             this.hp = Math.round(this.hp * 2.5)
         }else {
             console.log("Invalid stance: " + newStance)
@@ -76,7 +76,7 @@ class Warrior extends Hero {
       damage = Math.round(damage * 1.4)
       this.hp = Math.round(this.hp * 0.75)
       console.log(this.name + " uses ATTACK stance: reduced to " + this.hp)
-    //   uses ATTACK stance: reduced health by 0.75%
+    //   uses ATTACK stance: reduced health by 0.75 !!!!!
     } else if (this.stance === "defense") {
       damage = Math.round(damage * 0.5)
     }
@@ -201,6 +201,27 @@ chooseTarget(players) {
     return false 
 }
 }
+
+let bosses = [
+  new Boss("Sauron", 300, 40),
+  new Boss("Chronos", 260, 30),
+  new Boss("Lilith", 280, 35)
+]
+
+let warriorName = prompt("Enter the name of your Warrior: ")
+let warrior = new Warrior(warriorName, 110, 30)
+
+let mageName = prompt("Enter the name of your Mage: ")
+let mage = new Mage(mageName, 100, 25)
+
+let archerName = prompt("Enter the name of your Archer: ")
+let archer = new Archer(archerName, 90, 20)
+
+let heroes = [warrior, mage, archer]
+
+let boss = bosses[Math.floor(Math.random() * bosses.length)]
+console.log("The boss is " + boss.name + "!")
+
 
 // let Sauron 
 // let Chronos
